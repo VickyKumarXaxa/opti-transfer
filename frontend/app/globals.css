@@ -1,26 +1,225 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Cyberpunk design tokens — neon accents on a deep, dark base.
+   Primitive values live in `:root`; semantic aliases are exposed to Tailwind
+   through `@theme inline` so they work as `bg-*`, `text-*`, `shadow-*`.
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Base / surfaces --- */
+  --cp-void: #05020c;
+  --cp-abyss: #0a0614;
+  --cp-surface: #120b22;
+  --cp-surface-raised: #1b1130;
+  --cp-surface-overlay: #241640;
+  --cp-border: #33215c;
+  --cp-border-strong: #4a2f85;
+
+  /* --- Neon accents --- */
+  --cp-neon-cyan: #00f0ff;
+  --cp-neon-magenta: #ff2bd1;
+  --cp-neon-purple: #a855f7;
+  --cp-neon-lime: #adff2f;
+  --cp-neon-amber: #ffb01f;
+  --cp-neon-red: #ff2e5b;
+  --cp-neon-blue: #3b82f6;
+
+  /* --- Text --- */
+  --cp-text: #eae6ff;
+  --cp-text-muted: #a89fd0;
+  --cp-text-subtle: #6f659c;
+  --cp-text-inverse: #05020c;
+
+  /* --- Semantic --- */
+  --background: var(--cp-void);
+  --foreground: var(--cp-text);
+  --primary: var(--cp-neon-cyan);
+  --primary-foreground: var(--cp-text-inverse);
+  --secondary: var(--cp-neon-magenta);
+  --secondary-foreground: var(--cp-text-inverse);
+  --accent: var(--cp-neon-purple);
+  --success: var(--cp-neon-lime);
+  --warning: var(--cp-neon-amber);
+  --danger: var(--cp-neon-red);
+  --info: var(--cp-neon-blue);
+
+  /* --- Neon glows (box-shadow) --- */
+  --cp-glow-cyan:
+    0 0 4px rgba(0, 240, 255, 0.9), 0 0 16px rgba(0, 240, 255, 0.55),
+    0 0 40px rgba(0, 240, 255, 0.28);
+  --cp-glow-magenta:
+    0 0 4px rgba(255, 43, 209, 0.9), 0 0 16px rgba(255, 43, 209, 0.55),
+    0 0 40px rgba(255, 43, 209, 0.28);
+  --cp-glow-purple:
+    0 0 4px rgba(168, 85, 247, 0.9), 0 0 16px rgba(168, 85, 247, 0.55),
+    0 0 40px rgba(168, 85, 247, 0.28);
+  --cp-glow-lime:
+    0 0 4px rgba(173, 255, 47, 0.9), 0 0 16px rgba(173, 255, 47, 0.55),
+    0 0 40px rgba(173, 255, 47, 0.28);
+  --cp-glow-amber:
+    0 0 4px rgba(255, 176, 31, 0.9), 0 0 16px rgba(255, 176, 31, 0.55),
+    0 0 40px rgba(255, 176, 31, 0.28);
+  --cp-glow-soft: 0 0 24px rgba(0, 240, 255, 0.18);
+
+  /* --- Neon text glows (text-shadow) --- */
+  --cp-text-glow-cyan:
+    0 0 6px rgba(0, 240, 255, 0.85), 0 0 18px rgba(0, 240, 255, 0.45);
+  --cp-text-glow-magenta:
+    0 0 6px rgba(255, 43, 209, 0.85), 0 0 18px rgba(255, 43, 209, 0.45);
+  --cp-text-glow-lime:
+    0 0 6px rgba(173, 255, 47, 0.85), 0 0 18px rgba(173, 255, 47, 0.45);
+
+  /* --- Gradients --- */
+  --cp-gradient-neon: linear-gradient(
+    90deg,
+    var(--cp-neon-cyan),
+    var(--cp-neon-magenta)
+  );
+  --cp-gradient-synth: linear-gradient(
+    135deg,
+    var(--cp-neon-purple),
+    var(--cp-neon-magenta) 45%,
+    var(--cp-neon-amber)
+  );
+  --cp-gradient-surface: linear-gradient(
+    160deg,
+    var(--cp-surface-raised),
+    var(--cp-abyss)
+  );
+  --cp-gradient-grid:
+    linear-gradient(to right, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
 }
 
 @theme inline {
+  /* Surfaces */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-void: var(--cp-void);
+  --color-abyss: var(--cp-abyss);
+  --color-surface: var(--cp-surface);
+  --color-surface-raised: var(--cp-surface-raised);
+  --color-surface-overlay: var(--cp-surface-overlay);
+  --color-edge: var(--cp-border);
+  --color-edge-strong: var(--cp-border-strong);
+
+  /* Neon palette */
+  --color-neon-cyan: var(--cp-neon-cyan);
+  --color-neon-magenta: var(--cp-neon-magenta);
+  --color-neon-purple: var(--cp-neon-purple);
+  --color-neon-lime: var(--cp-neon-lime);
+  --color-neon-amber: var(--cp-neon-amber);
+  --color-neon-red: var(--cp-neon-red);
+  --color-neon-blue: var(--cp-neon-blue);
+
+  /* Text */
+  --color-muted: var(--cp-text-muted);
+  --color-subtle: var(--cp-text-subtle);
+  --color-inverse: var(--cp-text-inverse);
+
+  /* Semantic */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+
+  /* Glow shadows -> shadow-glow-cyan, shadow-glow-magenta, ... */
+  --shadow-glow-cyan: var(--cp-glow-cyan);
+  --shadow-glow-magenta: var(--cp-glow-magenta);
+  --shadow-glow-purple: var(--cp-glow-purple);
+  --shadow-glow-lime: var(--cp-glow-lime);
+  --shadow-glow-amber: var(--cp-glow-amber);
+  --shadow-glow-soft: var(--cp-glow-soft);
+
+  /* Typography */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Motion */
+  --animate-flicker: flicker 4s linear infinite;
+  --animate-pulse-glow: pulse-glow 2.4s ease-in-out infinite;
+
+  @keyframes flicker {
+    0%,
+    18%,
+    22%,
+    25%,
+    53%,
+    57%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    24%,
+    55% {
+      opacity: 0.45;
+    }
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      filter: brightness(1);
+    }
+    50% {
+      filter: brightness(1.35);
+    }
   }
 }
 
+/* Utilities that need properties `@theme` tokens cannot generate. */
+@utility text-glow-cyan {
+  text-shadow: var(--cp-text-glow-cyan);
+}
+
+@utility text-glow-magenta {
+  text-shadow: var(--cp-text-glow-magenta);
+}
+
+@utility text-glow-lime {
+  text-shadow: var(--cp-text-glow-lime);
+}
+
+@utility bg-grid {
+  background-image: var(--cp-gradient-grid);
+  background-size: 40px 40px;
+}
+
+@utility bg-neon {
+  background-image: var(--cp-gradient-neon);
+}
+
+@utility bg-synth {
+  background-image: var(--cp-gradient-synth);
+}
+
+@utility bg-surface-gradient {
+  background-image: var(--cp-gradient-surface);
+}
+
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background-color: var(--cp-neon-magenta);
+  color: var(--cp-text-inverse);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
