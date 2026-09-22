@@ -15,10 +15,10 @@ function Badge({
       variant={variant}
       className={cn(
         "border-edge/80 bg-surface-raised/70 text-foreground",
-        "data-[variant=default]:border-info/55 data-[variant=default]:bg-info/14 data-[variant=default]:text-info",
-        "data-[variant=secondary]:border-success/55 data-[variant=secondary]:bg-success/12 data-[variant=secondary]:text-success",
-        "data-[variant=destructive]:border-danger/60 data-[variant=destructive]:bg-danger/14 data-[variant=destructive]:text-danger",
-        "data-[variant=outline]:border-warning/55 data-[variant=outline]:bg-warning/10 data-[variant=outline]:text-warning",
+        "data-[variant=default]:border-info/65 data-[variant=default]:bg-info/12 data-[variant=default]:text-info",
+        "data-[variant=secondary]:border-success/65 data-[variant=secondary]:bg-success/12 data-[variant=secondary]:text-success",
+        "data-[variant=destructive]:border-danger/65 data-[variant=destructive]:bg-danger/12 data-[variant=destructive]:text-danger",
+        "data-[variant=outline]:border-warning/65 data-[variant=outline]:bg-warning/12 data-[variant=outline]:text-warning",
         className,
       )}
       {...props}

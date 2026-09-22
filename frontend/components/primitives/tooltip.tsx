@@ -30,7 +30,7 @@ function TooltipContent({
     <UITooltipContent
       sideOffset={sideOffset}
       className={cn(
-        "border border-info/55 bg-info/12 text-info shadow-glow-soft",
+        "border border-info/65 bg-info/12 text-info shadow-glow-soft",
         className,
       )}
       {...props}

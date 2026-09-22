@@ -20,8 +20,8 @@ function Alert({
       variant={variant}
       className={cn(
         "border-edge/80 bg-surface/55 text-foreground shadow-glow-soft",
-        "data-[variant=default]:border-info/60 data-[variant=default]:bg-info/10 data-[variant=default]:text-info",
-        "data-[variant=destructive]:border-danger/60 data-[variant=destructive]:bg-danger/12 data-[variant=destructive]:text-danger",
+        "data-[variant=default]:border-info/65 data-[variant=default]:bg-info/12 data-[variant=default]:text-info",
+        "data-[variant=destructive]:border-danger/65 data-[variant=destructive]:bg-danger/12 data-[variant=destructive]:text-danger",
         className,
       )}
       {...props}
@@ -51,7 +51,7 @@ function AlertDescription({
   return (
     <UIAlertDescription
       className={cn(
-        "text-muted-foreground group-data-[variant=default]/alert:text-info/80 group-data-[variant=destructive]/alert:text-danger/85",
+        "text-muted-foreground group-data-[variant=default]/alert:text-info/80 group-data-[variant=destructive]/alert:text-danger/80",
         className,
       )}
       {...props}

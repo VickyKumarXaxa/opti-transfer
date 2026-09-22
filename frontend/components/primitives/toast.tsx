@@ -26,9 +26,9 @@ function Toast({ className, ...props }: React.ComponentProps<typeof UIToast>) {
         "border-edge/80 bg-surface-overlay/95 text-foreground shadow-glow-soft",
         "data-[type=success]:border-success/65 data-[type=success]:bg-success/12 data-[type=success]:text-success data-[type=success]:shadow-glow-lime",
         "data-[type=info]:border-info/65 data-[type=info]:bg-info/12 data-[type=info]:text-info",
-        "data-[type=warning]:border-warning/70 data-[type=warning]:bg-warning/12 data-[type=warning]:text-warning data-[type=warning]:shadow-glow-amber",
-        "data-[type=error]:border-danger/70 data-[type=error]:bg-danger/14 data-[type=error]:text-danger",
-        "data-[type=loading]:border-neon-cyan/60 data-[type=loading]:bg-neon-cyan/10 data-[type=loading]:text-neon-cyan",
+        "data-[type=warning]:border-warning/65 data-[type=warning]:bg-warning/12 data-[type=warning]:text-warning data-[type=warning]:shadow-glow-amber",
+        "data-[type=error]:border-danger/65 data-[type=error]:bg-danger/12 data-[type=error]:text-danger",
+        "data-[type=loading]:border-neon-cyan/65 data-[type=loading]:bg-neon-cyan/12 data-[type=loading]:text-neon-cyan",
         className,
       )}
       {...props}
@@ -58,7 +58,7 @@ function ToastDescription({
   return (
     <UIToastDescription
       className={cn(
-        "group-data-[type=success]/toast:text-success/80 group-data-[type=info]/toast:text-info/80 group-data-[type=warning]/toast:text-warning/80 group-data-[type=error]/toast:text-danger/85 group-data-[type=loading]/toast:text-neon-cyan/80",
+        "group-data-[type=success]/toast:text-success/80 group-data-[type=info]/toast:text-info/80 group-data-[type=warning]/toast:text-warning/80 group-data-[type=error]/toast:text-danger/80 group-data-[type=loading]/toast:text-neon-cyan/80",
         className,
       )}
       {...props}
