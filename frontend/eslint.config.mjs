@@ -5,6 +5,18 @@ import nextTs from "eslint-config-next/typescript";
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  {
+    files: ["**/*.{ts,tsx}"],
+    ignores: ["components/ui/**", "components/primitives/**"],
+    rules: {
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: ["@/components/ui/*"],
+        },
+      ],
+    },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
